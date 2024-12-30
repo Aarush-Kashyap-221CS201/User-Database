@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+</head>
+<body>
+    <h1>Students List</h1>
+    <ul>
+        <% students.forEach(student => { %>
+            <li><%= student.name %> - <%= student.age %> years old <a href="/update/<%= student.id %>"><button>Update</button></a><a href="/delete/<%= student.id %>"><button>Delete</button></a></li>
+        <% }); %>
+    </ul>
+    <a href="/create"><button>Create New User</button></a>
+</body>
+</html>
