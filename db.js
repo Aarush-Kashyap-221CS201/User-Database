@@ -15,6 +15,9 @@ async function main() {
   console.log("seeding...");
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false, // Allows self-signed certificates if needed
+    },
   });
   await client.connect();
   await client.query(SQL);
@@ -23,7 +26,10 @@ async function main() {
 }
 
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false, // Allows self-signed certificates if needed
+    },
 });
 
 main();
